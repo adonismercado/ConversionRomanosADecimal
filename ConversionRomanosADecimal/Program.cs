@@ -19,5 +19,28 @@
 
             throw new ArgumentException("Carácter romano inválido");
         }
+
+        static int RomanoADecimal(string romano)
+        {
+            int total = 0;
+            int valorAnterior = 0;
+
+            for (int i = romano.Length - 1; i >= 0; i--)
+            {
+                int valor = ValorRomano(romano[i]);
+
+                if (valor < valorAnterior)
+                {
+                    total -= valor;
+                } 
+                else
+                {
+                    total += valor;
+                    valorAnterior = valor;
+                }
+            }
+
+            return total;
+        }
     }
 }

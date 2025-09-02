@@ -4,9 +4,22 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
-        }
+            Console.WriteLine();
+            Console.WriteLine("CONVERSOR DE NUMEROS ROMANOS A NUMEROS DECIMALES");
+            Console.WriteLine();
+            Console.Write("Ingrese un número romano: ");
+            string romano = Console.ReadLine().ToUpper();
 
+            try
+            {
+                int numeroDecimal = RomanoADecimal(romano);
+                Console.WriteLine($"El número decimal es: {numeroDecimal}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+        }
         static int ValorRomano(char c)
         {
             if (c == 'I') return 1;
